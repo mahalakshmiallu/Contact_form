@@ -1,0 +1,189 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #e0eafc, #cfdef3);
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  transition: background 0.5s, color 0.5s;
+}
+
+body.dark {
+  background: linear-gradient(135deg, #2c3e50, #4ca1af);
+  color: #f1f1f1;
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.theme-toggle button {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.theme-toggle button:hover {
+  background: #0056b3;
+  transform: scale(1.05);
+}
+
+.container {
+  background: #fff;
+  padding: 25px 30px;
+  border-radius: 12px;
+  width: 380px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  transition: background 0.5s, color 0.5s, transform 0.3s;
+  animation: float 3s ease-in-out infinite;
+}
+
+body.dark .container {
+  background: #34495e;
+}
+
+.container:hover {
+  transform: scale(1.02);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 8px;
+  color: #007bff;
+  transition: color 0.5s;
+}
+
+body.dark h2 {
+  color: #f39c12;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 20px;
+  transition: color 0.5s;
+}
+
+body.dark .subtitle {
+  color: #ddd;
+}
+
+label {
+  font-weight: 600;
+  margin-top: 12px;
+  display: block;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+input:focus, textarea:focus {
+  border: 1px solid #007bff;
+  box-shadow: 0 0 8px rgba(0,123,255,0.3);
+}
+
+button {
+  margin-top: 20px;
+  padding: 12px;
+  width: 100%;
+  background: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+button:hover {
+  background: #218838;
+  transform: translateY(-2px);
+}
+
+.error {
+  color: red;
+  font-size: 0.85em;
+  height: 14px;
+  display: block;
+  opacity: 0;
+  animation: fadeIn 0.5s forwards;
+}
+
+.success {
+  color: green;
+  text-align: center;
+  font-size: 0.95em;
+  margin-top: 12px;
+  font-weight: bold;
+  opacity: 0;
+  animation: fadeIn 0.7s forwards;
+}
+
+/* Floating animation */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Blinking cursor */
+.cursor {
+  display: inline-block;
+  width: 2px;
+  background-color: #007bff;
+  margin-left: 2px;
+  animation: blink 0.7s infinite;
+}
+
+body.dark .cursor {
+  background-color: #f39c12;
+}
+
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; }
+}
+
+/* Mobile responsiveness */
+@media screen and (max-width: 420px) {
+  .container {
+    width: 90%;
+    padding: 20px;
+  }
+
+  button, .theme-toggle button {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
